@@ -1,0 +1,19 @@
+using UnityEngine;
+
+public class WeatherSystem : MonoBehaviour
+{
+    public string[] weatherTypes = { "Sunny", "Rainy", "Cloudy" };
+    public string currentWeather;
+
+    void Start()
+    {
+        ChangeWeather();
+    }
+
+    void ChangeWeather()
+    {
+        currentWeather = weatherTypes[Random.Range(0, weatherTypes.Length)];
+        Debug.Log("Weather changed to: " + currentWeather);
+        Invoke("ChangeWeather", Random.Range(60f, 180f)); // Change weather every 1-3 minutes
+    }
+}
