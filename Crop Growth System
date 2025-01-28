@@ -1,0 +1,29 @@
+using UnityEngine;
+
+public class Crop : MonoBehaviour
+{
+    public float growthTime = 120f; // Time in seconds for crop to grow
+    public float currentGrowth = 0f;
+    public bool isHarvestable = false;
+
+    void Update()
+    {
+        if (currentGrowth < growthTime)
+        {
+            currentGrowth += Time.deltaTime; // Real-time growth
+        }
+        else
+        {
+            isHarvestable = true;
+        }
+    }
+
+    public void Harvest()
+    {
+        if (isHarvestable)
+        {
+            Debug.Log("Crop harvested!");
+            Destroy(gameObject); // Remove crop after harvesting
+        }
+    }
+}
