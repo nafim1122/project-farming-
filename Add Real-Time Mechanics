@@ -1,0 +1,17 @@
+using UnityEngine;
+
+public class DayNightCycle : MonoBehaviour
+{
+    public float dayLength = 120f; // 2 minutes per day
+    public float currentTime = 0f;
+
+    void Update()
+    {
+        currentTime += Time.deltaTime;
+        if (currentTime >= dayLength)
+        {
+            currentTime = 0f;
+            Debug.Log("New Day!");
+        }
+    }
+}
